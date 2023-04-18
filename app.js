@@ -35,8 +35,6 @@
 // book1.printBook();
 
 
-
-
 function Book() {
 }
 

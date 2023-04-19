@@ -38,8 +38,15 @@ header {
 }
 
 h1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     font-size: 2.6em;
     font-weight: 600;
+}
+
+.fa-book {
+    font-size: .8em;
 }
 
 .account-info {
@@ -54,7 +61,6 @@ h1 {
     font-size: 1.2em;
     border: none;
     font-weight: 600;
-    -webkit-appearance: none;
 }
 
 main {
@@ -73,12 +79,12 @@ main {
     font-weight: 700;
     border: none;
     transition: .5s;
-    -webkit-appearance: none;
 }
 
 .addBookBtn:hover {
     cursor: pointer;
     background-color: #c7c7c7;
+    transform: scale(1.1);
 }
 
 .btn:hover {
@@ -108,7 +114,12 @@ main {
     border-radius: 8px;
     background-color: var(--headerBackground);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: .2s;
     /* line-height: 1.2; */
+}
+
+.book-card:hover {
+    transform: scale(1.05);
 }
 
 .button-group {
@@ -153,7 +164,7 @@ main {
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 460px) {
 
     .container {
         flex-direction: column;

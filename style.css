@@ -8,6 +8,8 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: black;
 }
 
 body {
@@ -25,7 +27,6 @@ header {
     display: flex;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
 }
 
 .container {
@@ -51,6 +52,10 @@ h1 {
 .account-info {
     display: flex;
     gap: 20px;
+}
+
+button {
+    color: black;
 }
 
 .btn {
@@ -118,7 +123,7 @@ main {
 }
 
 .book-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .button-group {
@@ -161,6 +166,71 @@ main {
 .fa-github:hover {
     transform: scale(1.4);
 }
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    background-color: var(--bodyBackground);
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease-in-out;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.9s ease-in-out;
+}
+
+.add-book-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1.3em;
+    gap: 1.2em;
+}
+
+.input,
+.number {
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.2em;
+}
+
+.is-read {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+    accent-color: white;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay.active {
+    display: block;
+}
+
+
 
 
 @media (max-width: 460px) {

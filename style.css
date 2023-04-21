@@ -209,6 +209,19 @@ main {
     font-size: 1.2em;
 }
 
+/* removes arrow button for number input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .is-read {
     display: flex;
     justify-content: center;

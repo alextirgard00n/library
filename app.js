@@ -29,8 +29,9 @@ function Book() {
 }
 
 Book.prototype.printBook = function () {
-    console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead}`);
-    createCard(this.title, this.author, this.pages, this.isRead);
+    // console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead}`);
+    // createCard(this.title, this.author, this.pages, this.isRead);
+    addToLibrary(this.title, this.author, this.pages, this.isRead);
 }
 
 function bookInfo(title, author, pages, isRead) {
@@ -41,13 +42,13 @@ function bookInfo(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
-function readBoolean(boolean) {
-    if (boolean) {
-        return 'Is read'
-    } else {
-        return 'Not read'
-    }
-}
+// function readBoolean(boolean) {
+//     if (boolean) {
+//         return 'Is read'
+//     } else {
+//         return 'Not read'
+//     }
+// }
 
 bookInfo.prototype = Object.create(Book.prototype)
 
@@ -86,7 +87,7 @@ function submitClick(e) {
     const read = isRead.checked ? 'Read' : 'Not read';
 
     const newBook = new bookInfo(title, author, pages, read);
-
+    // myLibrary.push(newBook);
     newBook.printBook();
 
     toggleModal();
@@ -125,4 +126,13 @@ function createCard(titleCreate, authorCreate, pagesCreate, isReadCreate) {
     buttonGroup.appendChild(readButton);
     buttonGroup.appendChild(removeButton);
 }
+
+function addToLibrary(titleCreate, authorCreate, pagesCreate, isReadCreate) {
+    const newBook = new bookInfo(titleCreate, authorCreate, pagesCreate, isReadCreate);
+    myLibrary.push(newBook);
+    createCard(newBook.title, newBook.author, newBook.pages, newBook.isRead);
+}
+
+//initial card 
+addToLibrary('Tears of the Kingdom', 'Eiji Aonuma', 230, 'Not read');
 

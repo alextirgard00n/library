@@ -144,7 +144,7 @@ function addToLibrary(titleCreate, authorCreate, pagesCreate, isReadCreate) {
 //initial cards
 addToLibrary('Tears of the Kingdom', 'Eiji Aonuma', 230, 'Not read');
 addToLibrary('Breath of the Wild', 'Eiji Aonuma', 157, 'Read');
-addToLibrary('Breath of the Wild', 'Eiji Aonuma', 157, 'Not read');
+addToLibrary('Wind Waker', 'Eiji Aonuma', 65, 'Not read');
 
 
 // removeBtn.forEach(button => {
@@ -164,13 +164,12 @@ function removeBtnListener() {
     removeBtn.forEach((button, index) => {
         button.addEventListener('click', () => {
             // Remove book from myLibrary array
-            console.log(button);
+            console.log(button, index);
             myLibrary.splice(index, 1);
             // Remove book card from the DOM
             printLibrary();
         });
     });
-    console.log(this);
 }
 
 // function removeBtnListener() {

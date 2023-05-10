@@ -234,7 +234,7 @@ input[type=number] {
     width: 20px;
     height: 20px;
     margin-top: 4px;
-    accent-color: white;
+    accent-color: black;
 }
 
 .modal.active {

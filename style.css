@@ -184,9 +184,14 @@ main {
 .close-button {
     font-size: 20px;
     position: absolute;
-    right: 10px;
-    top: 5px;
+    right: 12px;
+    top: 7px;
     cursor: pointer;
+    transition: transform .7s ease;
+}
+
+.close-button:hover {
+    transform: scale(1.4) rotate(360deg);
 }
 
 .overlay {
@@ -215,6 +220,20 @@ main {
     padding: 10px;
     border-radius: 8px;
     font-size: 1.2em;
+}
+
+input:not(:focus):not(:placeholder-shown):valid {
+    border: 1px solid green;
+}
+
+input:not(:focus):not(:placeholder-shown):valid+span::before {
+    content: "✓";
+    color: green;
+    transition: .5s;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid {
+    border: 1px solid red;
 }
 
 /* removes arrow button for number input */

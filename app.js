@@ -12,6 +12,7 @@ const bookPages = document.querySelector('#pages');
 const isRead = document.querySelector('#isRead');
 const form = document.querySelector('#addBookForm');
 const accountInfoBtn = document.querySelector('.account-info');
+const inputBox = document.querySelectorAll('.input, .number');
 let isReadBtn;
 let removeBtn;
 
@@ -25,7 +26,7 @@ let currYear = document.querySelector('.currYear');
 currYear.textContent = new Date().getFullYear();
 
 //reserved for future project reiteration
-accountInfoBtn.addEventListener('click', function () {
+accountInfoBtn.addEventListener('click', () => {
     alert("Feature not implemented yet :(");
 });
 
@@ -56,23 +57,32 @@ bookInfo.prototype = Object.create(Book.prototype)
 function toggleModal() {
     modal.classList.toggle('active');
     overlay.classList.toggle('active');
+    // inputBox.classList.remove('input-success', 'input-error');
 }
 
 function overlayToggle(e) {
-    e.preventDefault();
+    // e.preventDefault();
     toggleModal();
     form.reset();
+
 }
 
 submitBtn.addEventListener("click", submitClick);
 
+
 function submitClick(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     const title = bookTitle.value;
     const author = bookAuthor.value;
     const pages = bookPages.value;
     const read = isRead.checked ? 'Read' : 'Not read';
+
+    if (title === '' || author === '' || pages === '') {
+        return; //shows errors on form
+    }
+
+
 
     const newBook = new bookInfo(title, author, pages, read);
     newBook.printBook();
@@ -154,6 +164,7 @@ function printLibrary() {
     myLibrary.forEach((book) => {
         createCard(book.title, book.author, book.pages, book.isRead);
     });
+    //updates button calls
     toggleReadStatus();
     removeBtnListener();
 }

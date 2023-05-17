@@ -39,9 +39,9 @@
         <i class="fa-solid fa-xmark close-button"></i>
         <form action="" class="add-book-form" id="addBookForm">
             <h2>Add new book</h2>
-            <input class="input" type="text" id="title" placeholder="Title">
-            <input class="input" type="text" id="author" placeholder="Author">
-            <input class="number" type="number" id="pages" placeholder="Pages">
+            <input class="input" type="text" id="title" placeholder="Title" required>
+            <input class="input" type="text" id="author" placeholder="Author" required>
+            <input class="number" type="number" id="pages" placeholder="Pages" required max="20000">
             <div class="is-read">
                 <label for="is-read">Have you read it?</label>
                 <input type="checkbox" class="checkbox" id="isRead">

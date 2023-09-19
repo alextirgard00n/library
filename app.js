@@ -57,7 +57,6 @@ bookInfo.prototype = Object.create(Book.prototype)
 function toggleModal() {
     modal.classList.toggle('active');
     overlay.classList.toggle('active');
-    // inputBox.classList.remove('input-success', 'input-error');
 }
 
 function overlayToggle(e) {
@@ -81,8 +80,6 @@ function submitClick(e) {
     if (title === '' || author === '' || pages === '') {
         return; //shows errors on form
     }
-
-
 
     const newBook = new bookInfo(title, author, pages, read);
     newBook.printBook();

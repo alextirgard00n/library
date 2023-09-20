@@ -30,26 +30,43 @@ accountInfoBtn.addEventListener('click', () => {
     alert("Feature not implemented yet :(");
 });
 
-//libary array for books entered
-let myLibrary = [];
+// //libary array for books entered
+// let myLibrary = [];
 
-//initialize book object
-function Book() {
+// //initialize book object
+// function Book() {
+// }
+
+// Book.prototype.printBook = function () {
+//     addToLibrary(this.title, this.author, this.pages, this.isRead);
+//     printLibrary();
+// }
+
+// function bookInfo(title, author, pages, isRead) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.isRead = isRead;
+// }
+
+// bookInfo.prototype = Object.create(Book.prototype)
+
+//////////////////////////////////////////////////
+
+//using classes instead of plain constructors//
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.isRead = isRead;
+    }
+
+    printBook() {
+        addToLibrary(this.title, this.author, this.pages, this.isRead);
+        printLibrary();
+    }
 }
-
-Book.prototype.printBook = function () {
-    addToLibrary(this.title, this.author, this.pages, this.isRead);
-    printLibrary();
-}
-
-function bookInfo(title, author, pages, isRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead;
-}
-
-bookInfo.prototype = Object.create(Book.prototype)
 
 
 
@@ -81,7 +98,7 @@ function submitClick(e) {
         return; //shows errors on form
     }
 
-    const newBook = new bookInfo(title, author, pages, read);
+    const newBook = new Book(title, author, pages, read);
     newBook.printBook();
     toggleModal();
     form.reset();
@@ -126,7 +143,7 @@ function createCard(titleCreate, authorCreate, pagesCreate, isReadCreate) {
 }
 
 function addToLibrary(titleCreate, authorCreate, pagesCreate, isReadCreate) {
-    const newBook = new bookInfo(titleCreate, authorCreate, pagesCreate, isReadCreate);
+    const newBook = new Book(titleCreate, authorCreate, pagesCreate, isReadCreate);
     myLibrary.push(newBook);
     createCard(newBook.title, newBook.author, newBook.pages, newBook.isRead);
 }
